@@ -1,12 +1,14 @@
-import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { Component, signal } from '@angular/core';
+import { SelectListExampleComponent } from "./select-list-example/select-list-example.component";
+import { ColorData } from './sample-data';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CommonModule, SelectListExampleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'linkedSignal';
+  readonly $myColors = signal<ColorData[]>([]);
 }
